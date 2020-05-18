@@ -609,6 +609,19 @@ pub fn criterion_benchmark(c: &mut Criterion) {
         })
         .sample_size(10),
     );
+
+    /*c.bench(
+        "nhswps",
+        Benchmark::new("vertical_128_64", |b| {
+            let mut state = rmp_serde::from_read_ref(
+                &include_bytes!("../src/nhswps/testdata/vertical/vertical.state")[..],
+            )
+            .unwrap();
+
+            b.iter(|| vertical(&mut state))
+        })
+        .sample_size(10),
+    );*/
 }
 
 criterion_group!(benches, criterion_benchmark);
